@@ -25,10 +25,7 @@ $progressData = [
 ];
 
 $content = "
-<div style='display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;'>
-    <h1 style='color: " . ($theme === 'dark' ? '#F9FAFB' : '#1F2937') . "; font-size: 32px; font-weight: 700;'>
-        Chart.js Components Demo
-    </h1>
+<div style='display: flex; justify-content: flex-end; align-items: center; margin-bottom: 40px;'>
     <a href='?theme={$themeToggle}' style='
         padding: 12px 24px; 
         background: rgba(20, 122, 214, 1); 
@@ -218,6 +215,163 @@ echo ChartComponents::metricCard('Usuarios', '1,247', 'Total');
     " . ChartComponents::horizontalCard('Challenge 01', 'XX of total XX', 76, '#1976D2', $theme) . "
     " . ChartComponents::horizontalCard('Challenge 02', 'XX of total XX', 50, '#EF5350', $theme) . "
     " . ChartComponents::compactStatCard('742', 'Category', 85, '#80DEEA', $theme) . "
+</div>
+
+<h2 style='color: " . ($theme === 'dark' ? '#F9FAFB' : '#1F2937') . "; margin: 40px 0 20px 0; font-size: 24px; font-weight: 600;'>
+    📈 Gráficos de Línea Avanzados
+</h2>
+<div class='grid grid-3' style='margin-bottom: 20px;'>
+    " . ChartComponents::areaLineChart(
+        [100, 150, 200, 120, 180, 160],
+        ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        'Chart title goes here',
+        '15 April - 21 April',
+        '#147AD6',
+        $theme
+    ) . "
+    " . ChartComponents::annotatedLineChart(
+        [350, 450, 200, 350, 480, 230],
+        ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        'Chart title goes here',
+        '15 April - 21 April',
+        '489',
+        'additional text',
+        '#EC6666',
+        $theme
+    ) . "
+    " . ChartComponents::areaLineChart(
+        [200, 300, 250, 400, 350, 320],
+        ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        'Chart title goes here',
+        '15 April - 21 April',
+        '#79D2DE',
+        $theme
+    ) . "
+    " . ChartComponents::multiLineChart([
+        ['label' => 'Point 01', 'data' => [150, 250, 400, 300, 250, 350], 'color' => '#147AD6'],
+        ['label' => 'Point 02', 'data' => [200, 180, 300, 250, 320, 280], 'color' => '#EC6666']
+    ], ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], 'Chart title goes here', '15 April - 21 April', $theme) . "
+</div>
+
+<div class='grid grid-3' style='margin-top: 30px;'>
+    " . ChartComponents::multiLineChart([
+        ['label' => 'Point 01', 'data' => [100, 200, 150, 300, 250, 200], 'color' => '#147AD6'],
+        ['label' => 'Point 02', 'data' => [50, 150, 200, 180, 220, 190], 'color' => '#EC6666']
+    ], ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], 'Chart title goes here', '15 April - 21 April', $theme) . "
+    " . ChartComponents::areaLineChart(
+        [180, 220, 190, 280, 240, 300],
+        ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        'Chart title goes here',
+        '15 April - 21 April',
+        '#79D2DE',
+        $theme
+    ) . "
+    " . ChartComponents::multiLineChart([
+        ['label' => 'Point 01', 'data' => [300, 250, 400, 350, 300, 380], 'color' => '#EC6666'],
+        ['label' => 'Point 02', 'data' => [200, 300, 250, 200, 350, 280], 'color' => '#147AD6']
+    ], ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], 'Chart title goes here', '15 April - 21 April', $theme) . "
+</div>
+
+<div style='display: flex; justify-content: flex-end; margin-top: 30px; gap: 12px;'>
+    <div style='display: flex; flex-direction: column; gap: 12px;'>
+        " . ChartComponents::compactLineChart('Chart title', '2,476', [100, 150, 200, 120, 180, 160, 140, 190], '#147AD6', $theme) . "
+        " . ChartComponents::compactLineChart('Chart title', '1,847', [80, 120, 160, 140, 200, 180, 160, 210], '#EC6666', $theme) . "
+        " . ChartComponents::compactLineChart('Chart title', '3,251', [120, 180, 140, 220, 190, 240, 200, 260], '#79D2DE', $theme) . "
+    </div>
+</div>
+
+<h2 style='color: " . ($theme === 'dark' ? '#F9FAFB' : '#1F2937') . "; margin: 40px 0 20px 0; font-size: 24px; font-weight: 600;'>
+    🥧 Gráficos de Pie y Dona Simples
+</h2>
+<div class='grid grid-3'>
+    " . ChartComponents::simpleDonutChart(58, 'Chart title', '15 April - 15 May', '#147AD6', $theme) . "
+    " . ChartComponents::simpleDonutChart(58, 'Chart title', '15 April - 15 May', '#EC6666', $theme) . "
+    " . ChartComponents::simpleDonutChart(58, 'Chart title', '15 April - 15 May', '#79D2DE', $theme) . "
+</div>
+
+<div class='grid grid-2' style='margin-top: 20px;'>
+    " . ChartComponents::simplePieChart(
+        [35, 25, 20, 20],
+        ['#147AD6', '#79D2DE', '#EC6666', '#F97316'],
+        'Chart title',
+        'Here go numbers XX of total XX',
+        $theme
+    ) . "
+    " . ChartComponents::pieChartWithLegend([
+        ['label' => 'Point 01', 'value' => 40, 'color' => '#147AD6'],
+        ['label' => 'Point 02', 'value' => 35, 'color' => '#79D2DE'],
+        ['label' => 'Point 03', 'value' => 25, 'color' => '#EC6666']
+    ], 'Chart title goes here', $theme) . "
+</div>
+
+<h2 style='color: " . ($theme === 'dark' ? '#F9FAFB' : '#1F2937') . "; margin: 40px 0 20px 0; font-size: 24px; font-weight: 600;'>
+    📊 Dashboard de Gráficos
+</h2>
+<div>
+    " . ChartComponents::chartDashboard([
+        ['percentage' => 58, 'title' => 'Chart title', 'subtitle' => '15 April - 15 May', 'color' => '#147AD6'],
+        ['percentage' => 72, 'title' => 'Chart title', 'subtitle' => '15 April - 15 May', 'color' => '#EC6666'],
+        ['percentage' => 45, 'title' => 'Chart title', 'subtitle' => '15 April - 15 May', 'color' => '#79D2DE']
+    ], [
+        ['data' => [35, 25, 20, 20], 'colors' => ['#147AD6', '#79D2DE', '#EC6666', '#F97316'], 'title' => 'Chart title', 'subtitle' => 'Here go numbers XX of total XX', 'legend' => false],
+        ['data' => [['label' => 'Point 01', 'value' => 40, 'color' => '#147AD6'], ['label' => 'Point 02', 'value' => 35, 'color' => '#79D2DE'], ['label' => 'Point 03', 'value' => 25, 'color' => '#EC6666']], 'title' => 'Chart title goes here', 'legend' => true]
+    ], $theme) . "
+</div>
+
+<h2 style='color: " . ($theme === 'dark' ? '#F9FAFB' : '#1F2937') . "; margin: 40px 0 20px 0; font-size: 24px; font-weight: 600;'>
+    📊 Gráficos de Barras Avanzados
+</h2>
+<div class='grid grid-3'>
+    " . ChartComponents::valueBarChart(
+        [500, 750, 600, 550, 400, 350, 400],
+        ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+        '$476',
+        'Daily average',
+        '#147AD6',
+        $theme
+    ) . "
+    " . ChartComponents::annotatedBarChart(
+        [150, 450, 700, 600, 500, 300, 250],
+        ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+        'Chart title goes here',
+        '15 April - 21 April',
+        '742',
+        'additional text',
+        '#147AD6',
+        $theme
+    ) . "
+    " . ChartComponents::labeledBarChart(
+        [320, 523, 545, 490, 330, 380, 380],
+        ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+        'Chart title goes here',
+        '15 April - 21 April',
+        '#147AD6',
+        $theme
+    ) . "
+</div>
+
+<div class='grid grid-3' style='margin-top: 30px;'>
+    " . ChartComponents::valueBarChart(
+        [250, 350, 450, 300, 400, 350, 300],
+        ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+        '$476',
+        'Daily average',
+        '#147AD6',
+        $theme
+    ) . "
+    " . ChartComponents::multiBarChart([
+        ['label' => 'Point 01', 'data' => [325, 450, 350, 400, 350, 500], 'color' => '#147AD6'],
+        ['label' => 'Point 02', 'data' => [-225, -350, -280, -300, -250, -400], 'color' => '#EC6666']
+    ], ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN'], 'Chart title goes here', 'Last 6 months', $theme) . "
+    " . ChartComponents::multiBarChart([
+        ['label' => 'Point 01', 'data' => [250, 400, 350, 380, 400, 450], 'color' => '#147AD6'],
+        ['label' => 'Point 02', 'data' => [300, 450, 400, 420, 450, 500], 'color' => '#79D2DE']
+    ], ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN'], 'Chart title goes here', 'Last 6 months', $theme) . "
+    " . ChartComponents::multiBarChart([
+        ['label' => 'Point 01', 'data' => [300, 400, 350, 380, 450, 480], 'color' => '#147AD6'],
+        ['label' => 'Point 02', 'data' => [250, 350, 300, 320, 380, 420], 'color' => '#79D2DE'],
+        ['label' => 'Point 03', 'data' => [450, 550, 500, 520, 580, 600], 'color' => '#EC6666']
+    ], ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], 'Chart title goes here', '', $theme) . "
 </div>
 
 <!-- ********************************************************************** -->";

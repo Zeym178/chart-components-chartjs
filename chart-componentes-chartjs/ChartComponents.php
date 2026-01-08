@@ -21,6 +21,8 @@ class ChartComponents
         require_once $basePath . 'carousel-charts.php';
         require_once $basePath . 'single-combined.php';
         require_once $basePath . 'size-charts.php';
+        require_once $basePath . 'advanced-line-charts.php';
+        require_once $basePath . 'pie-donut-charts.php';
         // ************************************************************
     }
     
@@ -207,6 +209,151 @@ class ChartComponents
      */
     public static function horizontalCard($title, $subtitle, $percent = 76, $color = '#1976D2', $theme = 'light', $chartId = null) {
         return horizontalCard($title, $subtitle, $percent, $color, $theme, $chartId);
+    }
+    
+    /**
+     * Gráfico de línea con área (Area Chart)
+     * @param array $data Datos del gráfico [[100,150,200,120,180,160]]
+     * @param array $labels Etiquetas para el eje X ['Jan', 'Feb', 'Mar', ...]
+     * @param string $title Título del gráfico
+     * @param string $subtitle Subtítulo del gráfico
+     * @param string $color Color principal (hex)
+     * @param string $theme 'light' o 'dark'
+     * @param string $chartId ID único para el canvas (opcional)
+     */
+    public static function areaLineChart($data, $labels = [], $title = 'Chart title goes here', $subtitle = '15 April - 21 April', $color = '#147AD6', $theme = 'light', $chartId = null) {
+        return areaLineChart($data, $labels, $title, $subtitle, $color, $theme, $chartId);
+    }
+    
+    /**
+     * Gráfico de línea con anotación destacada
+     * @param array $data Datos del gráfico [100,150,200,120,180,160]
+     * @param array $labels Etiquetas para el eje X
+     * @param string $title Título del gráfico
+     * @param string $subtitle Subtítulo del gráfico
+     * @param string $annotationValue Valor a destacar (ej: "489")
+     * @param string $annotationLabel Etiqueta de la anotación (ej: "additional text")
+     * @param string $color Color principal (hex)
+     * @param string $theme 'light' o 'dark'
+     * @param string $chartId ID único para el canvas (opcional)
+     */
+    public static function annotatedLineChart($data, $labels = [], $title = 'Chart title goes here', $subtitle = '15 April - 21 April', $annotationValue = '489', $annotationLabel = 'additional text', $color = '#147AD6', $theme = 'light', $chartId = null) {
+        return annotatedLineChart($data, $labels, $title, $subtitle, $annotationValue, $annotationLabel, $color, $theme, $chartId);
+    }
+    
+    /**
+     * Gráfico de líneas múltiples con leyenda
+     * @param array $datasets Array de datasets: [['label' => 'Point 01', 'data' => [...], 'color' => '#1976D2'], ...]
+     * @param array $labels Etiquetas para el eje X
+     * @param string $title Título del gráfico
+     * @param string $subtitle Subtítulo del gráfico
+     * @param string $theme 'light' o 'dark'
+     * @param string $chartId ID único para el canvas (opcional)
+     */
+    public static function multiLineChart($datasets, $labels = [], $title = 'Chart title goes here', $subtitle = '15 April - 21 April', $theme = 'light', $chartId = null) {
+        return multiLineChart($datasets, $labels, $title, $subtitle, $theme, $chartId);
+    }
+    
+    /**
+     * Tarjeta compacta con mini gráfico de línea
+     * @param string $title Título (ej: "Chart title")
+     * @param string $value Valor destacado (ej: "2,476")
+     * @param array $data Datos para el mini gráfico [100,150,200,120,180,160]
+     * @param string $color Color de la línea (hex)
+     * @param string $theme 'light' o 'dark'
+     * @param string $chartId ID único para el canvas (opcional)
+     */
+    public static function compactLineChart($title = 'Chart title', $value = '2,476', $data = [], $color = '#147AD6', $theme = 'light', $chartId = null) {
+        return compactLineChart($title, $value, $data, $color, $theme, $chartId);
+    }
+    
+    /**
+     * Gráfico de dona simple con porcentaje central
+     * @param int $percentage Porcentaje a mostrar (0-100)
+     * @param string $title Título del gráfico
+     * @param string $subtitle Subtítulo del gráfico
+     * @param string $color Color principal (hex)
+     * @param string $theme 'light' o 'dark'
+     * @param string $chartId ID único para el canvas (opcional)
+     */
+    public static function simpleDonutChart($percentage = 58, $title = 'Chart title', $subtitle = '15 April - 15 May', $color = '#147AD6', $theme = 'light', $chartId = null) {
+        return simpleDonutChart($percentage, $title, $subtitle, $color, $theme, $chartId);
+    }
+    
+    /**
+     * Gráfico de pie simple sin leyenda
+     * @param array $data Array con valores [35, 25, 20, 20]
+     * @param array $colors Array con colores ['#3498db', '#2ecc71', '#e74c3c', '#f39c12']
+     * @param string $title Título del gráfico
+     * @param string $subtitle Subtítulo del gráfico
+     * @param string $theme 'light' o 'dark'
+     * @param string $chartId ID único para el canvas (opcional)
+     */
+    public static function simplePieChart($data = [35, 25, 20, 20], $colors = ['#147AD6', '#EC6666', '#79D2DE', '#F97316'], $title = 'Chart title', $subtitle = 'Here go numbers XX of total XX', $theme = 'light', $chartId = null) {
+        return simplePieChart($data, $colors, $title, $subtitle, $theme, $chartId);
+    }
+    
+    /**
+     * Gráfico de pie con leyenda personalizada
+     * @param array $data Array con datos: [['label' => 'Point 01', 'value' => 40, 'color' => '#3498db'], ...]
+     * @param string $title Título del gráfico
+     * @param string $theme 'light' o 'dark'
+     * @param string $chartId ID único para el canvas (opcional)
+     */
+    public static function pieChartWithLegend($data = [], $title = 'Chart title goes here', $theme = 'light', $chartId = null) {
+        return pieChartWithLegend($data, $title, $theme, $chartId);
+    }
+    
+    /**
+     * Dashboard completo con múltiples gráficos tipo grid
+     * @param array $donutCharts Array de configuraciones para donuts
+     * @param array $pieCharts Array de configuraciones para pies
+     * @param string $theme 'light' o 'dark'
+     */
+    public static function chartDashboard($donutCharts = [], $pieCharts = [], $theme = 'light') {
+        return chartDashboard($donutCharts, $pieCharts, $theme);
+    }
+    
+    // =================== Marshall: Advanced Bar Charts Methods ===================
+    
+    /**
+     * Gráfico de barras con valor destacado
+     */
+    public static function valueBarChart($data, $labels = ['M', 'T', 'W', 'T', 'F', 'S', 'S'], $mainValue = '$476', $subtitle = 'Daily average', $color = '#147AD6', $theme = 'light', $chartId = null) {
+        include_once 'components/advanced-bar-charts.php';
+        return valueBarChart($data, $labels, $mainValue, $subtitle, $color, $theme, $chartId);
+    }
+
+    /**
+     * Gráfico de barras con anotación destacada
+     */
+    public static function annotatedBarChart($data, $labels = ['M', 'T', 'W', 'T', 'F', 'S', 'S'], $title = 'Chart title goes here', $subtitle = '15 April - 21 April', $annotationValue = '742', $annotationLabel = 'additional text', $color = '#147AD6', $theme = 'light', $chartId = null) {
+        include_once 'components/advanced-bar-charts.php';
+        return annotatedBarChart($data, $labels, $title, $subtitle, $annotationValue, $annotationLabel, $color, $theme, $chartId);
+    }
+
+    /**
+     * Gráfico de barras con valores mostrados en las barras
+     */
+    public static function labeledBarChart($data, $labels = ['M', 'T', 'W', 'T', 'F', 'S', 'S'], $title = 'Chart title goes here', $subtitle = '15 April - 21 April', $color = '#147AD6', $theme = 'light', $chartId = null) {
+        include_once 'components/advanced-bar-charts.php';
+        return labeledBarChart($data, $labels, $title, $subtitle, $color, $theme, $chartId);
+    }
+
+    /**
+     * Gráfico de barras múltiples con diferentes series
+     */
+    public static function multiBarChart($datasets, $labels = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN'], $title = 'Chart title goes here', $subtitle = 'Last 6 months', $theme = 'light', $chartId = null) {
+        include_once 'components/advanced-bar-charts.php';
+        return multiBarChart($datasets, $labels, $title, $subtitle, $theme, $chartId);
+    }
+
+    /**
+     * Gráfico de barras combinadas (positivas y negativas)
+     */
+    public static function combinedBarChart($positiveData, $negativeData, $labels = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN'], $title = 'Chart title goes here', $subtitle = 'Last 6 months', $positiveColor = '#147AD6', $negativeColor = '#EC6666', $theme = 'light', $chartId = null) {
+        include_once 'components/advanced-bar-charts.php';
+        return combinedBarChart($positiveData, $negativeData, $labels, $title, $subtitle, $positiveColor, $negativeColor, $theme, $chartId);
     }
     
     // ************************************************************
