@@ -87,25 +87,16 @@ $content = "
 </div>
 
 <h2 style='color: " . ($theme === 'dark' ? '#F9FAFB' : '#1F2937') . "; margin: 40px 0 20px 0; font-size: 24px; font-weight: 600;'>
-    📊 Barras de Progreso - Tema Claro
+    📊 Barras de Progreso
 </h2>
 <div class='grid grid-3'>
-    " . ChartComponents::multiProgressCard('Challenge 01', $progressData, 'light') . "
-    " . ChartComponents::singleProgressCard('Challenge 01', 'Here go numbers XX of total XX', 35, 'light') . "
-    " . ChartComponents::iconProgressCard('Category', '7.2h of 8h', '7.2h of 8h', '🌙', 'light') . "
+    " . ChartComponents::multiProgressCard('Challenge 01', $progressData, $theme) . "
+    " . ChartComponents::singleProgressCard('Challenge 01', 'Here go numbers XX of total XX', 35, $theme) . "
+    " . ChartComponents::iconProgressCard('Category', '7.2h of 8h', '7.2h of 8h', '🌙', $theme) . "
 </div>
 
 <h2 style='color: " . ($theme === 'dark' ? '#F9FAFB' : '#1F2937') . "; margin: 40px 0 20px 0; font-size: 24px; font-weight: 600;'>
-    📊 Barras de Progreso - Tema Oscuro
-</h2>
-<div class='grid grid-3'>
-    " . ChartComponents::multiProgressCard('Challenge 01', $progressData, 'dark') . "
-    " . ChartComponents::singleProgressCard('Challenge 01', 'Here go numbers XX of total XX', 35, 'dark') . "
-    " . ChartComponents::iconProgressCard('Category', '7.2h of 8h', '7.2h of 8h', '🌙', 'dark') . "
-</div>
-
-<h2 style='color: " . ($theme === 'dark' ? '#F9FAFB' : '#1F2937') . "; margin: 40px 0 20px 0; font-size: 24px; font-weight: 600;'>
-    📈 Gráficos de Línea - Tema Claro
+    📈 Gráficos de Línea
 </h2>
 <div class='grid grid-4'>
     " . ChartComponents::lineChartWithAnnotation(
@@ -114,14 +105,14 @@ $content = "
         'Chart title goes here', 
         '15 April - 21 April',
         ['value' => '489', 'label' => 'additional text'], 
-        'light'
+        $theme
     ) . "
     " . ChartComponents::smoothLineChart(
         [array_slice($sampleLineData[1], 0, 6)], 
         ['Data'], 
         'Chart title goes here', 
         '15 April - 21 April', 
-        'light'
+        $theme
     ) . "
     " . ChartComponents::lineChart(
         [array_slice($sampleLineData[1], 0, 6), array_slice($sampleLineData[2], 0, 6)], 
@@ -129,7 +120,7 @@ $content = "
         'Chart title goes here', 
         '15 April - 21 April', 
         'line', 
-        'light'
+        $theme
     ) . "
     " . ChartComponents::lineChart(
         [array_slice($sampleLineData[0], 0, 6), array_slice($sampleLineData[1], 0, 6), array_slice($sampleLineData[2], 0, 6)], 
@@ -137,44 +128,7 @@ $content = "
         'Chart title goes here', 
         '15 April - 21 April', 
         'line', 
-        'light'
-    ) . "
-</div>
-
-<h2 style='color: " . ($theme === 'dark' ? '#F9FAFB' : '#1F2937') . "; margin: 40px 0 20px 0; font-size: 24px; font-weight: 600;'>
-    📈 Gráficos de Línea - Tema Oscuro
-</h2>
-<div class='grid grid-4'>
-    " . ChartComponents::lineChartWithAnnotation(
-        [array_slice($sampleLineData[0], 0, 6)], 
-        ['Data'], 
-        'Chart title goes here', 
-        '15 April - 21 April',
-        ['value' => '202', 'label' => 'additional text'], 
-        'dark'
-    ) . "
-    " . ChartComponents::smoothLineChart(
-        [array_slice($sampleLineData[1], 0, 6)], 
-        ['Data'], 
-        'Chart title goes here', 
-        '15 April - 21 April', 
-        'dark'
-    ) . "
-    " . ChartComponents::lineChart(
-        [array_slice($sampleLineData[1], 0, 6), array_slice($sampleLineData[2], 0, 6)], 
-        ['Line 1', 'Line 2'], 
-        'Chart title goes here', 
-        '15 April - 21 April', 
-        'line', 
-        'dark'
-    ) . "
-    " . ChartComponents::lineChart(
-        [array_slice($sampleLineData[0], 0, 6), array_slice($sampleLineData[1], 0, 6), array_slice($sampleLineData[2], 0, 6)], 
-        ['Point 1', 'Point 2', 'Point 3'], 
-        'Chart title goes here', 
-        '15 April - 21 April', 
-        'line', 
-        'dark'
+        $theme
     ) . "
 </div>
 
@@ -223,7 +177,50 @@ echo ChartComponents::barChart(\$data, ['Serie 1', 'Serie 2']);<br><br>
 echo ChartComponents::metricCard('Usuarios', '1,247', 'Total');
     </div>
 </div>
-";
+
+<!-- ******************** MARSHALL COMPONENTS SECTION ******************** -->
+
+<h2 style='color: " . ($theme === 'dark' ? '#F9FAFB' : '#1F2937') . "; margin: 60px 0 20px 0; font-size: 24px; font-weight: 600; border-top: 3px solid rgba(20, 122, 214, 1); padding-top: 20px;'>
+    🍩 Gráficos de Dona
+</h2>
+<div class='grid grid-3'>
+    " . ChartComponents::donutChart3Categories([
+        ['label' => 'Long category label 01', 'value' => 55, 'color' => '#1976D2'],
+        ['label' => 'Long category label 02', 'value' => 25, 'color' => '#80DEEA'],
+        ['label' => 'Long category label 03', 'value' => 20, 'color' => '#EF5350']
+    ], 'Chart title goes here', $theme) . "
+    " . ChartComponents::ringChart4Categories([
+        ['label' => 'Point 01', 'value' => 76, 'color' => '#1976D2'],
+        ['label' => 'Point 02', 'value' => 15, 'color' => '#80DEEA'],
+        ['label' => 'Point 03', 'value' => 9, 'color' => '#EF5350']
+    ], 'Chart title goes here', 76, $theme) . "
+    " . ChartComponents::challengeList([
+        ['id' => 'ch_01', 'percent' => 76, 'title' => 'Challenge 01', 'subtitle' => 'XX of total XX', 'color' => '#1976D2'],
+        ['id' => 'ch_02', 'percent' => 54, 'title' => 'Challenge 02', 'subtitle' => 'XX of total XX', 'color' => '#EF5350'],
+        ['id' => 'ch_03', 'percent' => 88, 'title' => 'Challenge 03', 'subtitle' => 'XX of total XX', 'color' => '#80DEEA']
+    ], $theme) . "
+</div>
+
+<h2 style='color: " . ($theme === 'dark' ? '#F9FAFB' : '#1F2937') . "; margin: 40px 0 20px 0; font-size: 24px; font-weight: 600;'>
+    🎠 Componentes Carousel
+</h2>
+<div class='grid grid-3'>
+    " . ChartComponents::carouselChart('Chart title', 'Here go numbers XX of total XX', 76, '#1976D2', 1, $theme) . "
+    " . ChartComponents::carouselChart('Chart title', 'Here go numbers XX of total XX', 76, '#EF5350', 2, $theme) . "
+    " . ChartComponents::carouselChart('Chart title', 'Here go numbers XX of total XX', 76, '#80DEEA', 3, $theme) . "
+</div>
+
+<h2 style='color: " . ($theme === 'dark' ? '#F9FAFB' : '#1F2937') . "; margin: 40px 0 20px 0; font-size: 24px; font-weight: 600;'>
+    📏 Tarjetas Compactas
+</h2>
+<div class='grid grid-4'>
+    " . ChartComponents::compactStatCard('354', 'Category', 75, '#1976D2', $theme) . "
+    " . ChartComponents::horizontalCard('Challenge 01', 'XX of total XX', 76, '#1976D2', $theme) . "
+    " . ChartComponents::horizontalCard('Challenge 02', 'XX of total XX', 50, '#EF5350', $theme) . "
+    " . ChartComponents::compactStatCard('742', 'Category', 85, '#80DEEA', $theme) . "
+</div>
+
+<!-- ********************************************************************** -->";
 
 // Renderizar página completa
 echo ChartComponents::renderComplete($content, 'Chart.js Components', $theme);

@@ -226,6 +226,329 @@
     flex: 0 1 auto;
 }
 
+/* ******************** MARSHALL COMPONENTS STYLES ******************** */
+
+/* Donut Charts - 3 Categories */
+.chart-container-light-donut {
+    background-color: var(--bg-card-light);
+    color: var(--text-light);
+}
+
+.chart-container-dark-donut {
+    background-color: #2c2f3f;
+    color: #ffffff;
+}
+
+.donut-canvas-container {
+    position: relative;
+    height: 220px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.donut-legend {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+}
+
+.donut-legend li {
+    margin-bottom: 12px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+/* Ring Charts - 4 Categories */
+.chart-container-light-ring {
+    background-color: var(--bg-card-light);
+    color: var(--text-light);
+}
+
+.chart-container-dark-ring {
+    background-color: #2c2f3f;
+    color: #ffffff;
+}
+
+.ring-chart-wrapper {
+    position: relative;
+    height: 180px;
+    width: 180px;
+    margin: 0 auto 20px auto;
+}
+
+.ring-center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 42px;
+    font-weight: 300;
+    color: inherit;
+}
+
+.ring-divider {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 20px 0;
+}
+
+.chart-container-dark-ring .ring-divider {
+    background: #44475a;
+}
+
+.ring-legend-inline {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.ring-legend-inline li {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.ring-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+/* Carousel Charts */
+.carousel-card-light {
+    background: var(--bg-card-light);
+    color: var(--text-light);
+}
+
+.carousel-card-dark {
+    background-color: #2c2f3f;
+    color: #ffffff;
+}
+
+.carousel-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+}
+
+.carousel-subtitle {
+    font-size: 14px;
+    color: #a0a0b0;
+    margin: 0 0 30px 0;
+}
+
+.carousel-card-light .carousel-subtitle {
+    color: #90949c;
+}
+
+.carousel-chart-wrapper {
+    position: relative;
+    height: 160px;
+    width: 160px;
+    margin: 0 auto 35px auto;
+}
+
+.carousel-center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    font-weight: 600;
+    color: inherit;
+}
+
+.carousel-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #d1d5db;
+    transition: background-color 0.3s;
+}
+
+.carousel-card-dark .carousel-dot {
+    background-color: #45495e;
+}
+
+/* Challenge List (Single Combined) */
+.challenge-card-light {
+    background: var(--bg-card-light);
+    color: var(--text-light);
+}
+
+.challenge-card-dark {
+    background: #2c2f3f;
+    color: #ffffff;
+}
+
+.challenge-item {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.challenge-card-dark .challenge-item {
+    border-bottom: 1px solid #3e4152;
+}
+
+.challenge-item:last-child {
+    border-bottom: none;
+}
+
+.chart-mini-wrapper {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.chart-mini-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    font-weight: bold;
+    color: inherit;
+}
+
+.challenge-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.challenge-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #999;
+}
+
+.challenge-card-dark .challenge-info p {
+    color: #8c90a3;
+}
+
+/* Compact Stat Cards (Size) */
+.compact-stat-light {
+    background-color: var(--bg-card-light);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.compact-stat-dark {
+    background-color: #2c2e3a;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stat-text-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 16px;
+    font-weight: 400;
+    color: #9ca3af;
+}
+
+.stat-chart-mini {
+    position: relative;
+    height: 65px;
+    width: 65px;
+}
+
+/* Horizontal Cards */
+.horizontal-card-light {
+    background: var(--bg-card-light);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.horizontal-card-dark {
+    background-color: #2c2f3f;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.horizontal-info h4 {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.horizontal-info p {
+    margin: 0;
+    font-size: 13px;
+    color: #90949c;
+}
+
+.horizontal-card-dark .horizontal-info p {
+    color: #a0a0b0;
+}
+
+.horizontal-chart-wrap {
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+.horizontal-percent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-weight: 700;
+    color: inherit;
+}
+
+/* ********************************************************************** */
+
 /* Responsive */
 @media (max-width: 768px) {
     .chart-container {

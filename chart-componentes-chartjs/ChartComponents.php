@@ -15,6 +15,13 @@ class ChartComponents
         require_once $basePath . 'bar-chart.php';
         require_once $basePath . 'progress-bars.php';
         require_once $basePath . 'line-charts.php';
+        
+        // ******************** MARSHALL COMPONENTS ********************
+        require_once $basePath . 'donut-charts.php';
+        require_once $basePath . 'carousel-charts.php';
+        require_once $basePath . 'single-combined.php';
+        require_once $basePath . 'size-charts.php';
+        // ************************************************************
     }
     
     /**
@@ -127,6 +134,82 @@ class ChartComponents
     public static function lineChartWithAnnotation($data, $labels, $title, $subtitle, $annotation, $theme = 'light', $chartId = null) {
         return lineChartWithAnnotation($data, $labels, $title, $subtitle, $annotation, $theme, $chartId);
     }
+    
+    // ******************** MARSHALL COMPONENTS ********************
+    
+    /**
+     * Gráfico de dona de 3 categorías
+     * @param array $data Array con datos: [['label' => 'Label', 'value' => 55, 'color' => '#1976D2'], ...]
+     * @param string $title Título del gráfico
+     * @param string $theme 'light' o 'dark'
+     * @param string $chartId ID único para el canvas (opcional)
+     */
+    public static function donutChart3Categories($data, $title = 'Chart title goes here', $theme = 'light', $chartId = null) {
+        return donutChart3Categories($data, $title, $theme, $chartId);
+    }
+    
+    /**
+     * Gráfico de anillo (ring chart) de 4 categorías con porcentaje central
+     * @param array $data Array con datos: [['label' => 'Point 01', 'value' => 76, 'color' => '#1976D2'], ...]
+     * @param string $title Título del gráfico
+     * @param int $totalPercent Porcentaje principal a mostrar en el centro
+     * @param string $theme 'light' o 'dark'
+     * @param string $chartId ID único para el canvas (opcional)
+     */
+    public static function ringChart4Categories($data, $title = 'Chart title goes here', $totalPercent = 76, $theme = 'light', $chartId = null) {
+        return ringChart4Categories($data, $title, $totalPercent, $theme, $chartId);
+    }
+    
+    /**
+     * Tarjeta de gráfico tipo carousel con paginación
+     * @param string $title Título del gráfico
+     * @param string $subtitle Subtítulo
+     * @param int $percent Porcentaje (0-100)
+     * @param string $color Color del gráfico (hex)
+     * @param int $activeDot Cuál punto de paginación está activo (1-3)
+     * @param string $theme 'light' o 'dark'
+     * @param string $chartId ID único para el canvas (opcional)
+     */
+    public static function carouselChart($title = 'Chart title', $subtitle = 'Here go numbers XX of total XX', $percent = 76, $color = '#1976D2', $activeDot = 1, $theme = 'light', $chartId = null) {
+        return carouselChart($title, $subtitle, $percent, $color, $activeDot, $theme, $chartId);
+    }
+    
+    /**
+     * Lista vertical de tarjetas con mini gráficos de dona
+     * @param array $items Array de items: [['id' => 'unique', 'percent' => 76, 'title' => 'Challenge 01', 'subtitle' => 'XX of total XX', 'color' => '#1976D2'], ...]
+     * @param string $theme 'light' o 'dark'
+     */
+    public static function challengeList($items, $theme = 'light') {
+        return challengeList($items, $theme);
+    }
+    
+    /**
+     * Tarjeta compacta horizontal con número grande y mini gráfico donut
+     * @param string $value Valor principal (ej: "354")
+     * @param string $label Etiqueta (ej: "Category")
+     * @param int $percent Porcentaje para el gráfico (0-100)
+     * @param string $color Color del gráfico (hex)
+     * @param string $theme 'light' o 'dark'
+     * @param string $chartId ID único para el canvas (opcional)
+     */
+    public static function compactStatCard($value, $label, $percent = 75, $color = '#1976D2', $theme = 'light', $chartId = null) {
+        return compactStatCard($value, $label, $percent, $color, $theme, $chartId);
+    }
+    
+    /**
+     * Tarjeta horizontal con texto e info en la izquierda y mini gráfico a la derecha
+     * @param string $title Título (ej: "Challenge 01")
+     * @param string $subtitle Subtítulo (ej: "XX of total XX")
+     * @param int $percent Porcentaje (0-100)
+     * @param string $color Color del gráfico (hex)
+     * @param string $theme 'light' o 'dark'
+     * @param string $chartId ID único para el canvas (opcional)
+     */
+    public static function horizontalCard($title, $subtitle, $percent = 76, $color = '#1976D2', $theme = 'light', $chartId = null) {
+        return horizontalCard($title, $subtitle, $percent, $color, $theme, $chartId);
+    }
+    
+    // ************************************************************
     
     /**
      * Generar HTML completo con estilos incluidos
