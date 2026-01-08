@@ -1,0 +1,243 @@
+/* Chart Components Themes CSS */
+:root {
+    /* Colores del tema claro */
+    --chart-primary: rgba(20, 122, 214, 1);      /* Azul */
+    --chart-secondary: rgba(236, 102, 102, 1);   /* Rojo coral */
+    --chart-success: rgba(121, 210, 222, 1);     /* Verde azulado */
+    --chart-muted: rgba(115, 136, 169, 0.3533);  /* Gris */
+    --chart-white: rgba(255, 255, 255, 1);       /* Blanco */
+    
+    /* Colores adicionales para variedad */
+    --chart-orange: #F97316;       /* Naranja */
+    --chart-purple: #8B5CF6;       /* Púrpura */
+    --chart-green: #10B981;        /* Verde */
+    
+    /* Light Theme Background & Text */
+    --bg-light: #F8FAFC;
+    --bg-card-light: rgba(255, 255, 255, 1);
+    --text-light: #1E293B;
+    --text-muted-light: #64748B;
+    --border-light: rgba(115, 136, 169, 0.3533);
+    
+    /* Dark Theme Colors */
+    --bg-dark: #1F2937;
+    --bg-card-dark: rgba(51, 51, 64, 1);
+    --text-dark: rgba(255, 255, 255, 1);
+    --text-muted-dark: #94A3B8;
+    --border-dark: rgba(115, 136, 169, 0.3533);
+}
+
+/* Base Styles - Sistema flexible */
+.chart-container {
+    border-radius: 12px;
+    padding: 24px;
+    margin: 16px 0;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    /* Tamaño flexible por defecto */
+    width: 100%;
+    height: fit-content;
+    min-height: auto;
+}
+
+/* Light Theme */
+.theme-light {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+}
+
+.theme-light .chart-container {
+    background-color: var(--bg-card-light);
+    border: 1px solid var(--border-light);
+}
+
+.theme-light .chart-title {
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.theme-light .chart-subtitle {
+    color: var(--text-muted-light);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+/* Dark Theme */
+.theme-dark {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+.theme-dark .chart-container {
+    background-color: var(--bg-card-dark);
+    border: 1px solid var(--border-dark);
+}
+
+.theme-dark .chart-title {
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.theme-dark .chart-subtitle {
+    color: var(--text-muted-dark);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+/* Color Palette Display */
+.color-palette {
+    display: flex;
+    gap: 8px;
+    margin: 16px 0;
+}
+
+.color-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+}
+
+.color-primary { background-color: var(--chart-primary); }
+.color-secondary { background-color: var(--chart-secondary); }
+.color-success { background-color: var(--chart-success); }
+.color-muted { background-color: var(--chart-muted); }
+.color-white { background-color: var(--chart-white); border-color: var(--border-light); }
+
+/* Large Numbers Display */
+.large-number {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1;
+    margin: 8px 0;
+}
+
+.metric-card {
+    text-align: left;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.metric-value {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 8px 0;
+}
+
+/* Progress Bars */
+.progress-container {
+    margin: 12px 0;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.theme-light .progress-bar-bg {
+    background-color: var(--border-light);
+}
+
+.theme-dark .progress-bar-bg {
+    background-color: var(--border-dark);
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.progress-primary { background-color: var(--chart-primary); }
+.progress-secondary { background-color: var(--chart-secondary); }
+.progress-success { background-color: var(--chart-success); }
+
+/* Métricas y números - Sistema flexible */
+.metric-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: auto;
+    width: fit-content;
+    min-width: 120px;
+    height: fit-content;
+}
+
+.large-number {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1;
+    margin: 8px 0;
+}
+
+.metric-value {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 8px 0;
+}
+
+/* Grid layouts - Sistema flexible */
+.grid {
+    display: grid;
+    gap: 20px;
+}
+
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.grid-4 { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+
+/* Clases opcionales para tamaños específicos */
+.size-small { max-width: 200px; min-height: 100px; }
+.size-medium { max-width: 300px; min-height: 120px; }
+.size-large { max-width: 400px; min-height: 150px; }
+.size-auto { width: fit-content; height: fit-content; }
+
+/* Progress Cards - Clases opcionales */
+.progress-style-multi { min-height: 180px; }
+.progress-style-single { min-height: 120px; }
+.progress-style-compact { min-height: 80px; }
+
+/* Layout flexible para métricas */
+.metrics-flex {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.metrics-flex .metric-card {
+    flex: 0 1 auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .chart-container {
+        padding: 16px;
+        margin: 8px 0;
+    }
+    
+    .large-number {
+        font-size: 36px;
+    }
+    
+    .metric-value {
+        font-size: 24px;
+    }
+}
