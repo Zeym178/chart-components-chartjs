@@ -2,30 +2,43 @@
 require_once __DIR__ . '/ChartComponents.php';
 ChartComponents::init();
 
-function jsonResponse(array $data, int $status = 200): void {
-    http_response_code($status);
+function jsonResponse($data, $status) {
+    if (function_exists('http_response_code')) {
+        http_response_code($status);
+    } else {
+        header('X-PHP-Response-Code: ' . (int)$status, true, (int)$status);
+    }
     header('Content-Type: application/json; charset=utf-8');
-    echo json_encode($data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+    $flags = 0;
+    if (defined('JSON_UNESCAPED_SLASHES')) {
+        $flags = $flags | JSON_UNESCAPED_SLASHES;
+    }
+    if (defined('JSON_UNESCAPED_UNICODE')) {
+        $flags = $flags | JSON_UNESCAPED_UNICODE;
+    }
+
+    echo json_encode($data, $flags);
     exit;
 }
 
-function safeTheme($value): string {
+function safeTheme($value) {
     return $value === 'dark' ? 'dark' : 'light';
 }
 
-function extractThemeFromCode(string $code): ?string {
+function extractThemeFromCode($code) {
     if (preg_match('/\$theme\s*=\s*[\"\'](dark|light)[\"\']\s*;/i', $code, $m)) {
         return strtolower($m[1]);
     }
     return null;
 }
 
-$code = $_POST['code'] ?? '';
+$code = isset($_POST['code']) ? $_POST['code'] : '';
 if (!is_string($code) || trim($code) === '') {
-    jsonResponse(['ok' => false, 'error' => 'Missing code payload.'], 400);
+    jsonResponse(array('ok' => false, 'error' => 'Missing code payload.'), 400);
 }
 
-$theme = safeTheme($_POST['theme'] ?? 'light');
+$theme = safeTheme(isset($_POST['theme']) ? $_POST['theme'] : 'light');
 $themeFromCode = extractThemeFromCode($code);
 if ($themeFromCode !== null) {
     $theme = safeTheme($themeFromCode);
@@ -41,12 +54,12 @@ $target = __DIR__ . '/php-playground-user.php';
 $tmp = $target . '.tmp';
 
 if (@file_put_contents($tmp, $out) === false) {
-    jsonResponse(['ok' => false, 'error' => 'Failed to write temp file. Check folder permissions.'], 500);
+    jsonResponse(array('ok' => false, 'error' => 'Failed to write temp file. Check folder permissions.'), 500);
 }
 
 if (!@rename($tmp, $target)) {
     @unlink($tmp);
-    jsonResponse(['ok' => false, 'error' => 'Failed to replace php-playground-user.php. Check folder permissions.'], 500);
+    jsonResponse(array('ok' => false, 'error' => 'Failed to replace php-playground-user.php. Check folder permissions.'), 500);
 }
 
-jsonResponse(['ok' => true, 'url' => 'php-playground-user.php?ts=' . time(), 'theme' => $theme]);
+jsonResponse(array('ok' => true, 'url' => 'php-playground-user.php?ts=' . time(), 'theme' => $theme), 200);

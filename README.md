@@ -14,13 +14,20 @@ Librería completa de componentes de gráficos interactivos usando Chart.js con 
 
 ## 🚀 Instalación
 
-1. Copia la carpeta `chart-componentes-chartjs` a tu proyecto
+1. Copia la carpeta `chart-components-chartjs` a tu proyecto
 2. Incluye el archivo principal en tu PHP:
 
 ```php
 require_once 'ChartComponents.php';
 ChartComponents::init();
 ```
+
+## 🧰 Páginas de documentación (local)
+
+- `doc-index.php`: galería de *snippets* (solo copiar/pegar). No renderiza previews.
+- `php-playground.php`: editor + preview en vivo (escribe tu código en `php-playground-user.php` y lo carga en un iframe).
+
+Nota: el playground está pensado para uso local (XAMPP). No lo publiques en Internet tal cual.
 
 ## 🎯 Uso Básico
 

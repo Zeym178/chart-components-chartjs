@@ -2,7 +2,7 @@
 require_once __DIR__ . '/ChartComponents.php';
 ChartComponents::init();
 
-$theme = 'light';
+$theme = 'dark';
 
 $component = 
 ChartComponents::colorPalette($theme);
