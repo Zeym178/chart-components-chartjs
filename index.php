@@ -98,7 +98,7 @@ $content = "
 <div class='grid grid-4'>
     " . ChartComponents::lineChartWithAnnotation(
         [array_slice($sampleLineData[0], 0, 6)], 
-        ['Data'], 
+        ['EN', 'FE', 'MR', 'AP', 'MY', 'JN'], 
         'Chart title goes here', 
         '15 April - 21 April',
         ['value' => '489', 'label' => 'additional text'], 

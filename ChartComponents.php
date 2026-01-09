@@ -84,22 +84,22 @@ class ChartComponents
     /**
      * Tarjeta con múltiples barras de progreso
      */
-    public static function multiProgressCard($title, $progressItems, $theme = 'light') {
-        return multiProgressCard($title, $progressItems, $theme);
+    public static function multiProgressCard($title, $progressItems, $theme = 'light', $size = 'auto') {
+        return multiProgressCard($title, $progressItems, $theme, $size);
     }
     
     /**
      * Tarjeta de progreso simple
      */
-    public static function singleProgressCard($title, $subtitle, $percentage, $theme = 'light') {
-        return singleProgressCard($title, $subtitle, $percentage, $theme);
+    public static function singleProgressCard($title, $subtitle, $percentage, $theme = 'light', $size = 'auto') {
+        return singleProgressCard($title, $subtitle, $percentage, $theme, $size);
     }
     
     /**
      * Tarjeta de progreso con icono
      */
-    public static function iconProgressCard($title, $subtitle, $time, $icon = '🌙', $theme = 'light') {
-        return iconProgressCard($title, $subtitle, $time, $icon, $theme);
+    public static function iconProgressCard($title, $subtitle, $time, $icon = '🌙', $theme = 'light', $size = 'auto') {
+        return iconProgressCard($title, $subtitle, $time, $icon, $theme, $size);
     }
     
     /**
